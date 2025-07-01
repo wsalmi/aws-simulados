@@ -21,7 +21,7 @@ COPY . .
 EXPOSE 3000
 
 # Define variáveis de ambiente
-ENV REACT_APP_API_URL=http://localhost:5001
+ENV REACT_APP_API_URL=http://backend:5001
 
 # Comando para iniciar aplicação em modo desenvolvimento
 CMD ["pnpm", "run", "dev", "--host", "0.0.0.0", "--port", "3000"]
