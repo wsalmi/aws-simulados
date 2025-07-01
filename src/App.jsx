@@ -487,12 +487,19 @@ function SimulationPage() {
   const submitSimulation = async () => {
     setSubmitting(true)
     try {
+      // Calcula o tempo decorrido em segundos
+      const totalDurationSeconds = simulation.duration * 60
+      const timeSpent = totalDurationSeconds - timeLeft
+      
       const response = await fetch(`/api/simulation/${sessionId}/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ answers })
+        body: JSON.stringify({ 
+          answers,
+          time_taken: timeSpent
+        })
       })
 
       if (response.ok) {
