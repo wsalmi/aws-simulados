@@ -1,0 +1,48 @@
+services:
+  # Backend Flask API
+  backend:
+    build:
+      context: ./aws-simulados-api
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    volumes:
+      - ./aws-simulados-api:/app
+    networks:
+      - aws-simulados-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/api/certifications"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend React
+  frontend:
+    build:
+      context: ./aws-simulados
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://backend:5001
+    # volumes:
+    #   - ./aws-simulados:/app
+    networks:
+      - aws-simulados-network
+    depends_on:
+      backend:
+        condition: service_healthy
+    stdin_open: true
+    tty: true
+
+volumes:
+  backend_data:
+    driver: local
+
+networks:
+  aws-simulados-network:
+    driver: bridge
+
