@@ -52,7 +52,7 @@ source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
 
 pip install -r requirements.txt
-python init_db.py
+python unified_seed_database.py --reset
 python src/main.py
 ```
 
@@ -104,7 +104,9 @@ pnpm run dev
 ├── aws-simulados-api/          # Backend Flask
 │   ├── Dockerfile
 │   ├── requirements.txt
-│   ├── init_db.py             # Inicialização do banco
+│   ├── unified_seed_database.py # Seeding unificado do banco
+│   ├── DATABASE_SEEDING_GUIDE.md # Guia de seeding
+│   ├── old_scripts_backup/    # Scripts antigos (backup)
 │   └── src/
 │       ├── main.py            # Aplicação principal
 │       ├── models/            # Modelos de dados

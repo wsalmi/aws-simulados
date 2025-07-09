@@ -8,9 +8,9 @@ services:
       - "5001:5001"
     environment:
       - FLASK_ENV=development
-      - FLASK_DEBUG=1
-    volumes:
-      - ./aws-simulados-api:/app
+      - FLASK_DEBUG=0
+    # volumes:
+    #   - ./aws-simulados-api:/app
     networks:
       - aws-simulados-network
     healthcheck:
@@ -22,7 +22,7 @@ services:
   # Frontend React
   frontend:
     build:
-      context: ./aws-simulados
+      context: ./aws-simulados-front
       dockerfile: Dockerfile
     ports:
       - "3000:3000"

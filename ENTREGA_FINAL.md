@@ -1,9 +1,5 @@
 # 🎯 Sistema de Simulados AWS - Entrega Final
 
-## ✅ Sistema Completo Implementado e Funcionando
-
-Criei um sistema completo de simulados para suas certificações AWS, totalmente funcional e pronto para uso. O sistema agora inclui **Docker Compose** para execução local simplificada!
-
 ---
 
 ## 🚀 **Execução Ultra-Rápida com Docker**
@@ -89,7 +85,9 @@ docker-compose up --build
 - `src/main.py` - Aplicação principal
 - `src/models/` - Modelos de dados
 - `src/routes/` - Rotas da API
-- `init_db.py` - Inicialização do banco
+- `unified_seed_database.py` - Seeding unificado do banco
+- `DATABASE_SEEDING_GUIDE.md` - Guia de seeding
+- `old_scripts_backup/` - Scripts antigos (backup)
 
 ### **Frontend React**
 - `aws-simulados/` - Interface completa

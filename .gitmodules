@@ -1,0 +1,6 @@
+[submodule "aws-simulados-api"]
+	path = aws-simulados-api
+	url = https://github.com/wsalmi/aws-simulados-api.git
+[submodule "aws-simulados-front"]
+	path = aws-simulados-front
+	url = https://github.com/wsalmi/aws-simulados-front.git
